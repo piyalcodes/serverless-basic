@@ -80,8 +80,8 @@ export class CognitoUserService {
         "initiateAuth",
         {
           //ClientId: Config.get("cognito_user_pool_client_id"),
-          ClientId: "12uelf64r5dbmmsfil4cc64du9",
-          AuthFlow: "REFRESH_TOKEN_AUTH",
+          ClientId: "sdsddsdsdsdsdsds",
+          AuthFlow: "sasasascdscxcxcsd",
           AuthParameters: {
             REFRESH_TOKEN: token
           }
@@ -102,8 +102,8 @@ export class CognitoUserService {
     this.password = password;
 
     this.pool = new CognitoUserPool({
-      UserPoolId: "eu-central-1_sZ1BfcEt8",
-      ClientId: "12uelf64r5dbmmsfil4cc64du9"
+      UserPoolId: "wsdsfdfdfdfdf",
+      ClientId: "wefvdfvgegdfbfg"
     });
   }
 }
