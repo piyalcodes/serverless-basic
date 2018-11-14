@@ -4,8 +4,8 @@ export class CognitoUserService {
   private provider;
   private email;
   private password;
-  private clientId = "wfdsfdffds";
-  private poolId = "sdfdfdfdfdf";
+  private clientId = "dfgfgdfgf";
+  private poolId = "dfgdffgdfg";
 
   signUp() {
     return new Promise((resolve, reject) => {

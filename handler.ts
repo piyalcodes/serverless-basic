@@ -16,7 +16,7 @@ export const getUsers = async (event, context, cb) => {
 }
 
 export const register = async (event, context, cb) => {
-  const CU = new CognitoUserService("fghgdfg@gmail.com", "123123");
+  const CU = new CognitoUserService("sdfdfdfd@gmail.com", "123123");
   return CU.signUp().then(response => {
     return cb(null,
       {
@@ -64,7 +64,7 @@ export const register = async (event, context, cb) => {
 }
 
 export const login = async (event, context, cb) => {
-  const CU = new CognitoUserService("dsfsdfd@gmail.com", "123123");
+  const CU = new CognitoUserService("sdfdsffd@gmail.com", "123123");
   return this.CU.login().then(response => {
     return cb(null,
       {
@@ -126,7 +126,7 @@ export const verify = (event, context, callback) => {
 
 export const rftoken = async (event, context, cb) => {
   console.log("rftoken 11")
-  const token = 'asdfadasdasdasdasdasdsadasdasdads';
+  const token = 'sdfsdfdfsdf';
   const CU = new CognitoUserService();
   console.log("rftoken 222")
   return CU.refresh(token).then(response => {
