@@ -13,6 +13,7 @@
 
 service: piyal-service # NOTE: update this with your service name
 
+
 # You can pin your service to only deploy with a specific Serverless version
 # Check out our docs for more details
 # frameworkVersion: "=X.X.X"
@@ -72,10 +73,6 @@ provider:
 functions:
   register:
     handler: handler.register
-
-#    The following are a few example events you can configure
-#    NOTE: Please make sure to change your handler code to work with those events
-#    Check the event documentation for details
     events:
       - http:
           path: register
@@ -83,35 +80,25 @@ functions:
 
   verify:
     handler: handler.verify
-
-#    The following are a few example events you can configure
-#    NOTE: Please make sure to change your handler code to work with those events
-#    Check the event documentation for details
     events:
       - http:
           path: verify
-          method: get  
+          method: get     
           
   login:
     handler: handler.login
-
-#    The following are a few example events you can configure
-#    NOTE: Please make sure to change your handler code to work with those events
-#    Check the event documentation for details
     events:
       - http:
           path: login
-          method: get            
+          method: get          
           
-          
-  envVariables:
-    handler: envVariables.handler
+  rftoken:
+    handler: handler.rftoken
     events:
       - http:
-          path: envVariables
-          method: GET
-    environment: 
-      OTHER_KEY: otherkey123
+          path: rftoken
+          method: get             
+       
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
 #      - sns: greeter-topic

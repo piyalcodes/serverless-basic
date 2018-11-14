@@ -1,7 +1,9 @@
 import "isomorphic-fetch"
 import { CognitoUserService } from "./serviceList";
 
-export const hello = async (event, context, cb) => {
+const cu = {};
+
+export const getUsers = async (event, context, cb) => {
   cb(null,
     {
       statusCode: 200,
@@ -14,7 +16,7 @@ export const hello = async (event, context, cb) => {
 }
 
 export const register = async (event, context, cb) => {
-  const CU = new CognitoUserService("tenamax@gmail.com", "123123");
+  const CU = new CognitoUserService("fghgdfg@gmail.com", "123123");
   return CU.signUp().then(response => {
     return cb(null,
       {
@@ -59,12 +61,11 @@ export const register = async (event, context, cb) => {
         }
       );
     })
-
 }
 
 export const login = async (event, context, cb) => {
-  const CU = new CognitoUserService("tenamax@gmail.com", "123123");
-  return CU.login().then(response => {
+  const CU = new CognitoUserService("dsfsdfd@gmail.com", "123123");
+  return this.CU.login().then(response => {
     return cb(null,
       {
         statusCode: 200,
@@ -121,4 +122,56 @@ export const verify = (event, context, callback) => {
 
   // Return to Amazon Cognito
   callback(null, event);
+}
+
+export const rftoken = async (event, context, cb) => {
+  console.log("rftoken 11")
+  const token = 'asdfadasdasdasdasdasdsadasdasdads';
+  const CU = new CognitoUserService();
+  console.log("rftoken 222")
+  return CU.refresh(token).then(response => {
+    return cb(null,
+      {
+        statusCode: 200,
+        body: JSON.stringify({
+          status: "success",
+          data: response
+        }),
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Credentials": true
+        }
+      }
+    );
+  },
+    response => {
+      return cb(null,
+        {
+          statusCode: 400,
+          body: JSON.stringify({
+            status: "error",
+            data: response
+          }),
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true
+          }
+        }
+      );
+    }).catch(response => {
+      return cb(null,
+        {
+          statusCode: 400,
+          body: JSON.stringify({
+            status: "error",
+            data: response
+          }),
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Credentials": true
+          }
+        }
+      );
+    })
+
 }
