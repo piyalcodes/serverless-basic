@@ -4,8 +4,8 @@ export class CognitoUserService {
   private provider;
   private email;
   private password;
-  private clientId = "dfgfgdfgf";
-  private poolId = "dfgdffgdfg";
+  private clientId = "sdsdsdd";
+  private poolId = "sdsdsdss";
 
   signUp() {
     return new Promise((resolve, reject) => {
@@ -43,7 +43,6 @@ export class CognitoUserService {
         {
           AuthFlow: "USER_PASSWORD_AUTH",
           ClientId: this.clientId,
-          poolId: this.poolId,
           AuthParameters: {
             PASSWORD: this.password,
             USERNAME: this.email
@@ -62,9 +61,7 @@ export class CognitoUserService {
   }
 
   refresh(token) {
-    console.log("Token: ", token)
     return new Promise((resolve, reject) => {
-      console.log("Token Promise ")
       this.provider.initiateAuth(
         {
           AuthFlow: "REFRESH_TOKEN_AUTH",
@@ -74,9 +71,6 @@ export class CognitoUserService {
           }
         },
         (err, result) => {
-
-          console.log("err, result ", err, result)
-
           if (err) {
             reject(err);
             return;

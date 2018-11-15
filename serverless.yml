@@ -97,7 +97,16 @@ functions:
     events:
       - http:
           path: rftoken
-          method: get             
+          method: get  
+
+  getUsers:
+    handler: handler.getUsers
+    events:
+      - http:
+          path: getUsers
+          method: get            
+
+                     
        
 #      - s3: ${env:BUCKET}
 #      - schedule: rate(10 minutes)
